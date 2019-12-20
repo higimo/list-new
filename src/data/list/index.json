@@ -1,0 +1,15 @@
+[
+	{ "id": 1, "parent": null, "title": "Корень" },
+	{ "id": 2, "parent": 1, "title": "ники" },
+	{ "id": 3, "parent": 2, "title": "higimo" },
+	{ "id": 4, "parent": 2, "title": "dok" },
+	{ "id": 5, "parent": 2, "title": "moko" },
+	{ "id": 6, "parent": 2, "title": "vlalek" },
+	{ "id": 7, "parent": 2, "title": "arsolio" },
+	{ "id": 8, "parent": 1, "title": "Города" },
+	{ "id": 9,  "parent": 8, "title": "Москва" },
+	{ "id": 10, "parent": 8, "title": "Владивосток" },
+	{ "id": 11, "parent": 8, "title": "Петербург" },
+	{ "id": 12, "parent": 8, "title": "Шахунья" },
+	{ "id": 13, "parent": 8, "title": "Краснодар" }
+]

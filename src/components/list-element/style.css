@@ -1,0 +1,23 @@
+.element-node {
+	line-height: 1.2;
+}
+
+.element-node__data {
+    padding-top: 0.5rem;
+}
+
+.element-node .element-node {
+	padding-left: 2.5rem;
+}
+
+.element-node__meta {
+	opacity: .1;
+	transition: 100ms ease-in;
+	font-size: 0.7rem;
+	margin-top: .2rem;
+	margin-left: .5rem;
+}
+
+.element-node__data:hover .element-node__meta {
+	opacity: 1;
+}
