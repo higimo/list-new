@@ -2,14 +2,14 @@ import { h, Component } from 'preact'
 import { Router } from 'preact-router'
 
 import Home from '../routes/home'
-import Profile from '../routes/profile'
+import ListList from '../routes/list-list'
 
 const App = () => (
 	<div id="app">
 		<Router>
 			<Home path="/" />
-			<Profile path="/list-list/" id="1" />
-			<Profile path="/list-list/:id" />
+			<ListList path="/list-list/" id="1" />
+			<ListList path="/list-list/:id" />
 		</Router>
 	</div>
 )

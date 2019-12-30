@@ -6,8 +6,9 @@ import hierarchicalStructure from 'helper/hierarchical-structure'
 
 import './style'
 
-const Profile = ({ id = 0 }) => {
+const ListList = ({ id = 0 }) => {
 	const [list, setData] = useState([])
+
 	useEffect(() => {
 		fetch(`http://higimo.ru/api/v1/lister/item?withChild=true&filter[code]=${id}&filter[id]=${id}`)
 			.then(i => i.json())
@@ -20,11 +21,17 @@ const Profile = ({ id = 0 }) => {
 	return (
 		<div class="home">
 			{parent.map((item, iter) => (
-				<ListElement key={iter} {...item} isAuthorized={isAuthorized} />
+				<ListElement
+					key={iter}
+					{...item}
+					propertys={getHashTableByIdArray(propertys)}
+					values={values}
+					isAuthorized={isAuthorized}
+				/>
 			))}
 		</div>
 	)
 }
 
 
-export default Profile
+export default ListList
