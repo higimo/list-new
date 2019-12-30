@@ -1,11 +1,19 @@
-import './style'
+import { useState, useEffect } from 'preact/hooks'
 
 import ListElement from 'components/list-element'
-import list from 'data/list'
 
 import hierarchicalStructure from 'helper/hierarchical-structure'
 
-const Profile = ({ id }) => {
+import './style'
+
+const Profile = ({ id = 0 }) => {
+	const [list, setData] = useState([])
+	useEffect(() => {
+		fetch(`http://higimo.ru/api/v1/lister/item?withChild=true&filter[code]=${id}&filter[id]=${id}`)
+			.then(i => i.json())
+			.then(i => setData(i.data))
+	}, [id])
+
 	const arr = hierarchicalStructure(list)
 	const parent = arr.filter(i => i.id == id)
 	const isAuthorized = 1

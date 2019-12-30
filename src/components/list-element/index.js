@@ -2,10 +2,15 @@ import { Link } from 'preact-router'
 
 import './style.css'
 
-const ListElement = ({ id, title, child, created_at, code, isAuthorized, ...other }) => {
+const ListElement = ({ id, title, child, parent, created_at, code, isAuthorized, ...other }) => {
 	return (
 		<div className="element-node">
 			<div className="element-node__data">
+				{(!!child.length && parent !== null) && (
+					<div className="element-node__parent">
+						<Link href={`/list-list/${parseInt(parent, 0) || 1}`}>← назад</Link>
+					</div>
+				)}
 				<div className="element-node__title">
 					<Link href={`/list-list/${id}`}>{title}</Link>
 				</div>
