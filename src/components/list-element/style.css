@@ -3,7 +3,7 @@
 }
 
 .element-node__data {
-    padding-top: 0.5rem;
+	padding-top: 0.5rem;
 }
 
 .element-node .element-node {
@@ -20,4 +20,21 @@
 
 .element-node__data:hover .element-node__meta {
 	opacity: 1;
+}
+
+.element-node__props {
+	display: grid;
+	grid-column: 2;
+	grid-template-columns: 6rem 1fr;
+	grid-gap: .3rem;
+	font-size: 75%;
+	margin-left: 1rem;
+}
+
+.element-node__props {
+	padding: .5rem 0;
+}
+
+.element-node__props + .element-node__meta {
+	margin-bottom: 1rem;
 }
