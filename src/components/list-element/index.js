@@ -45,7 +45,7 @@ const ListElement = ({
 						<span className="element-node__link">
 							<Link href="/list-list/create">создать</Link>
 							{' '}
-							<Link href={`/list-list/edit/${id}`}>редактировать</Link>
+							<Link href={`/list-list/${id}/edit`}>редактировать</Link>
 							{' '}
 							<span className="pseudo-link">удалить</span>
 						</span>

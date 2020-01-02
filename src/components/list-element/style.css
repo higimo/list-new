@@ -38,3 +38,15 @@
 .element-node__props + .element-node__meta {
 	margin-bottom: 1rem;
 }
+
+.form_row {
+	display: grid;
+	grid-column: 2;
+	grid-template-columns: 6rem minmax(max-content, 300px);
+	grid-gap: .3rem;
+	margin-bottom: .3rem;
+}
+
+input[readonly] {
+    opacity: .3;
+}
