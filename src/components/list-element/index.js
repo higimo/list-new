@@ -52,9 +52,9 @@ const ListElement = ({
 					)}
 				</div>
 			</div>
-			{!!child && child.map((item, iter) => (
+			{!!child && child.map(item => (
 				<ListElement
-					key={iter}
+					key={item.id}
 					{...item}
 					propertys={propertys}
 					values={values}
