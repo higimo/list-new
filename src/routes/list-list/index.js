@@ -50,5 +50,4 @@ const ListList = ({ id = 0 }) => {
 	)
 }
 
-
 export default ListList
