@@ -1,19 +1,13 @@
 const hierarchicalStructure = list => {
-	const hashMap = {}
-	for (let i = 0, l = list.length; i < l; i++) {
-		hashMap[list[i].id] = list[i]
-		hashMap[list[i].id].child = []
-	}
-	for (let i = 0, l = list.length; i < l; i++) {
-		if (list[i].parent) {
-			if (hashMap[list[i].parent]) {
-				hashMap[list[i].parent].child.push(list[i])
-			} else {
-				list[i].parent = null
-			}
+	list.sort((a, b) => a.parent - b.parent)
+	let result = {}
+	list.map(i => ({ ...i, child: [] })).forEach(item => {
+		result[item.id] = item
+		if (result[item.parent]) {
+			result[item.parent].child.push(item)
 		}
-	}
-	return Object.values(hashMap)
+	})
+	return Object.values(result)
 }
 
 export default hierarchicalStructure
