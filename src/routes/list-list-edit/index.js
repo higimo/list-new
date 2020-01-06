@@ -1,11 +1,11 @@
+import sendRequest from '../../helper/send-request'
+
 import { useState, useEffect } from 'preact/hooks'
 import { useForm } from 'react-hook-form'
 
 import ListElement from 'components/list-element'
 
 import hierarchicalStructure from 'helper/hierarchical-structure'
-
-import './style'
 
 const getHashTableByIdArray = arr => arr.reduce((all, i) => ({ ...all, [i.id]: i }), {})
 
@@ -23,46 +23,46 @@ const ListListEdit = ({ id = 0 }) => {
 				if (!data[pair.join('/')]) {
 					return
 				}
-
-				let fd = new FormData()
-				fd.append('id', value && value.id)
-				fd.append('value', data[pair.join('/')])
-				fd.append('property', (value && value.property) || pair[1])
-				fd.append('item', data.id)
-				fetch(
-					`http://higimo.ru/api/v1/lister/value/${value && value.id}`,
+				sendRequest(
+					`/api/v1/lister/value/${value && value.id}`,
 					{
 						method: 'POST',
-						headers: {
-							// Authorization: 'Basic ' + base64.encode(username + ":" + password),
-						// 	'Accept': 'application/json',
-						// 	'Content-Type': 'application/x-www-form-urlencoded',
+						values: {
+							id: value && value.id,
+							value: data[pair.join('/')],
+							property: (value && value.property) || pair[1],
+							item: data.id,
 						},
-						// body: JSON.stringify(obj),
-						body: fd,
 					}
 				)
 			})
-		// console.log(data)
+		sendRequest(
+			`/api/v1/lister/item/${id}`,
+			{
+				method: 'POST',
+				values: data,
+			}
+		).then(() => {
+			console.log('HIGIMO!!')
+			location.reload()
+		})
+
 	}
 
 	useEffect(() => {
-		fetch(`http://higimo.ru/api/v1/lister/item?filter[code]=${id}&filter[id]=${id}`)
-			.then(i => i.json())
-			.then(i => setData(i.data))
+		sendRequest(`/api/v1/lister/item?filter[code]=${id}&filter[id]=${id}`)
+			.then(data => setData(data))
 	}, [id])
 
 	useEffect(() => {
-		fetch(`http://higimo.ru/api/v1/lister/property/byItemId?filter[id]=${id}`)
-			.then(i => i.json())
-			.then(i => setProperty(i.data))
+		sendRequest(`/api/v1/lister/property/byItemId?filter[id]=${id}`)
+			.then(data => setProperty(data))
 	}, [id])
 
 	const itemIds = list.map(i => i.id)
 	useEffect(() => {
-		fetch(`http://higimo.ru/api/v1/lister/value/byItemsId?filter[item]=${itemIds.join(',')}`)
-			.then(i => i.json())
-			.then(i => setValues(i.data))
+		sendRequest(`/api/v1/lister/value/byItemsId?filter[item]=${itemIds.join(',')}`)
+			.then(data => setValues(data))
 	}, [id, ...itemIds])
 
 	const element = list[0] || {}

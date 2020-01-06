@@ -4,8 +4,6 @@ import ListElement from 'components/list-element'
 
 import hierarchicalStructure from 'helper/hierarchical-structure'
 
-import './style'
-
 const getHashTableByIdArray = arr => arr.reduce((all, i) => ({ ...all, [i.id]: i }), {})
 
 const ListList = ({ id = 0 }) => {

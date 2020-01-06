@@ -1,7 +1,5 @@
 import { Link } from 'preact-router'
 
-import './style.css'
-
 const Home = () => (
 	<div class="home">
 		<h1>Список списков</h1>
