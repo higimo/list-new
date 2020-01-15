@@ -1,11 +1,8 @@
+import CreateProperty from '../../components/create-property'
 import sendRequest from '../../helper/send-request'
 
-import { useState, useEffect } from 'preact/hooks'
 import { useForm } from 'react-hook-form'
-
-import ListElement from 'components/list-element'
-
-import hierarchicalStructure from 'helper/hierarchical-structure'
+import { useState, useEffect } from 'preact/hooks'
 
 const getHashTableByIdArray = arr => arr.reduce((all, i) => ({ ...all, [i.id]: i }), {})
 
@@ -96,14 +93,7 @@ const ListListEdit = ({ id = 0 }) => {
 					/>
 				</div>
 			))}
-			{/*<div className="test">
-				<input name="lastname" ref={register({ required: true })} />
-				{errors.lastname && 'Last name is required.'}
-			</div>
-			<div className="test">
-				<input name="age" ref={register({ pattern: /\d+/ })} />
-				{errors.age && 'Please enter number for age.'}
-			</div>*/}
+			<CreateProperty parentId={element.parent} />
 			<button>Сохранить</button>
 		</form>
 	)
