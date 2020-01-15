@@ -111,23 +111,6 @@ const ListListEdit = ({ id = 0 }) => {
 			<button>Сохранить</button>
 		</form>
 	)
-
-	// const arr = hierarchicalStructure(list)
-	// const parent = arr.filter(i => i.id == id)
-	// const isAuthorized = 1
-	// return (
-	// 	<div class="home">
-	// 		{parent.map((item, iter) => (
-	// 			<ListElement
-	// 				key={iter}
-	// 				{...item}
-	// 				propertys={getHashTableByIdArray(propertys)}
-	// 				values={values}
-	// 				isAuthorized={isAuthorized}
-	// 			/>
-	// 		))}
-	// 	</div>
-	// )
 }
 
 export default ListListEdit
