@@ -42,11 +42,7 @@ const ListListEdit = ({ id = 0 }) => {
 				method: 'POST',
 				values: data,
 			}
-		).then(() => {
-			console.log('HIGIMO!!')
-			location.reload()
-		})
-
+		).then(() => location.reload())
 	}
 
 	useEffect(() => {
