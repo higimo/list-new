@@ -16,6 +16,7 @@ const App = () => (
 			<ListList path="/list-list/:id" />
 			<Login path="/login" />
 			<PrivateRoute path="/list-list/:id/edit" component={ListListEdit} />
+			<PrivateRoute path="/list-list/:id/create" component={ListListCreate} />
 			<PrivateRoute path="/list-list/create" component={ListListCreate} />
 		</Router>
 	</div>

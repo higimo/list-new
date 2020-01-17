@@ -4,9 +4,7 @@ import sendRequest from '../../helper/send-request'
 import { useForm } from 'react-hook-form'
 import { useState, useEffect } from 'preact/hooks'
 
-const getHashTableByIdArray = arr => arr.reduce((all, i) => ({ ...all, [i.id]: i }), {})
-
-const ListListEdit = ({ id = 0 }) => {
+const ListListCreate = ({ id = 0 }) => {
 	const [ list, setData ] = useState([])
 	const [ propertys, setProperty ] = useState([])
 	const [ values, setValues ] = useState([])
@@ -21,7 +19,7 @@ const ListListEdit = ({ id = 0 }) => {
 					return
 				}
 				sendRequest(
-					`/api/v1/lister/value/${value && value.id}`,
+					`/api/v1/lister/value`,
 					{
 						method: 'POST',
 						values: {
@@ -34,7 +32,7 @@ const ListListEdit = ({ id = 0 }) => {
 				)
 			})
 		sendRequest(
-			`/api/v1/lister/item/${id}`,
+			`/api/v1/lister/item`,
 			{
 				method: 'POST',
 				values: data,
@@ -58,7 +56,7 @@ const ListListEdit = ({ id = 0 }) => {
 			</div>
 			<div className="form_row">
 				<label>parent</label>
-				<input name="parent" ref={register} />
+				<input name="parent" value={id} ref={register} />
 			</div>
 			<div className="form_row">
 				<label>code</label>
@@ -69,4 +67,4 @@ const ListListEdit = ({ id = 0 }) => {
 	)
 }
 
-export default ListListEdit
+export default ListListCreate

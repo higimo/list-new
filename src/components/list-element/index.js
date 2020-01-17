@@ -43,7 +43,7 @@ const ListElement = ({
 				<div className="element-node__meta">
 					{isAuthorized && (
 						<span className="element-node__link">
-							<Link href="/list-list/create">создать</Link>
+							<Link href={`/list-list/${id}/create`}>создать</Link>
 							{' '}
 							<Link href={`/list-list/${id}/edit`}>редактировать</Link>
 							{' '}
